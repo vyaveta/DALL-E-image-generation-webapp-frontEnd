@@ -17,12 +17,12 @@ const CreatePost = () => {
 
     //Functions
     const handleSubmit = () => {
-
+      alert('submit action detected')
     }
 
     const handleChange = (e:any) => {
-      if(!e.target || e.target.name || e.target.value) return 
-      setForm({...form, [e.target.name]: e.target.value})
+      if(!e.target) return
+      setForm({...form, [e.target.name]: e.target.value}); return
     }
 
     const handleSupriceMe = () => {
@@ -43,7 +43,7 @@ const CreatePost = () => {
             <h1 className='font-extrabold text-[#222328] text-[32px]'>Create your image</h1>
             <p className='mt-2 text-[#666e75] text-[14px] max-w-[500px]'>Random text here</p>
           </div>
-          <form className='mt-16 max-w-3xl' onSubmit={handleSubmit}>
+          <div className='mt-16 max-w-3xl'>
             <div className='flex flex-col gap-5'>
                 <FormField 
                 labelName='your name'
@@ -84,12 +84,12 @@ const CreatePost = () => {
             </div>
             <div className='mt-10'>
               <p className='mt-2 text-[#666e75] text-[14px]'>Once you have created, if you want you can share it with others in the community</p>
-              <button type='submit' className='mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto
+              <button onClick={handleSubmit} className='mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto
               px-5 py-2.5 text-center'>
                 {loading ? 'Sharing...' : 'Share with the community'}
               </button>
             </div>
-          </form>
+          </div>
         </section>
     </Wrapper>
    </>
